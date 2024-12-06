@@ -4,9 +4,9 @@ import os
 
 
 # ------------------------------------ MAIN APP ------------------------------------
-st.title(":wrench: :computer: :school_satchel: ToolBox")
+st.title(":wrench: ToolBox")
 
 st.write("""
-        This is a collection of coding tools I've built with Streamlit.
+        Welcome to my collection of coding tools and related projects built with Streamlit.   
         Select an app from the sidebar to get started!
         """)

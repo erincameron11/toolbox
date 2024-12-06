@@ -5,7 +5,7 @@ import time
 
 
 # ------------------------------------ MAIN APP ------------------------------------
-st.title("Markdown Previewer")
+st.title(":eyes: Markdown Previewer")
 
 st.divider()
 
