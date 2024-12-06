@@ -16,4 +16,4 @@ if uploaded_file:
         st.error('Please upload a CSV file format.', icon="🚨")
     else:
         df = pd.read_csv(uploaded_file)
-        st.dataframe(df)
+        st.dataframe(df)g
