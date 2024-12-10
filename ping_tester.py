@@ -1,37 +1,43 @@
 # ------------------------------------ IMPORTS ------------------------------------
 import streamlit as st
-from ping3 import ping
+# from ping3 import ping
+import socket
+import time
 
 
 # ------------------------------------ MAIN APP ------------------------------------
-st.title(":globe_with_meridians: Ping Tester")
-# Other Options: :signal_strength: :satellite:
-
-st.divider()
-
-def ping_server(host):
+def ping_server(host, port=80):
     """
-    Pings the server and measures the response time.
+    Checks the server's connectivity using a TCP socket and measures the response time.
 
     Parameters
     ----------
     host : str
         The hostname or IP address of the server to ping.
+    port : int
+        The port to attempt the connection (default is 80 for HTTP).
 
     Returns
     -------
     str
-        A message indicating whether the server is reachable and, if so, 
-        the response time in milliseconds.
+        A message indicating whether the server is reachable, and the measured response time.
     """
-    response_time = ping(host)
-    # If there is no response time, the host is unreachable
-    if response_time is None:
-        return f"{host} is unreachable."
-    # If there is a response time, return it
-    else:
-        response_time_ms = response_time * 1000
-        return f"{host} responded in {response_time_ms:.2f} ms."
+    try:
+        # Record the start time
+        start_time = time.time()
+        with socket.create_connection((host, port), timeout=5) as s:
+            # Record the end time
+            end_time = time.time()
+            # Calculate the connection time and convert to milliseconds
+            connection_time = (end_time - start_time) * 1000
+            return f'{host} is reachable on port {port}.', f'Connection time: {connection_time:.2f} ms'
+    except (socket.timeout, socket.error) as e:
+        return f'{host} is unreachable.', 'Please enter a valid host.'
+
+
+st.title(":globe_with_meridians: Ping Tester")
+
+st.divider()
 
 # Input field for the server address
 st.subheader(':gray[Enter the server or IP address to ping:]')
@@ -41,7 +47,6 @@ host = st.text_input("Enter the server or IP address to ping:", 'erincameron11.g
 if st.button('Ping'):
     # If the user has filled in a host / IP
     if host:
-        result = ping_server(host)
-        st.subheader(f':blue[{result}]')
-    else:
-        st.write('Please enter a valid host.')
+        result1, result2 = ping_server(host)
+        st.subheader(f':blue[{result1}]')
+        st.subheader(f':blue[{result2}]')
