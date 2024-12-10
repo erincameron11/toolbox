@@ -1,6 +1,5 @@
 # ------------------------------------ IMPORTS ------------------------------------
 import streamlit as st
-# from ping3 import ping
 import socket
 import time
 
@@ -36,6 +35,8 @@ def ping_server(host, port=80):
 
 
 st.title(":globe_with_meridians: Ping Tester")
+
+st.write('Measures the connection time in milliseconds and checks the availability of the server or IP address using a TCP socket.')
 
 st.divider()
 
