@@ -11,9 +11,11 @@ def main() :
         "ToolBox": [
             st.Page("app.py", title="Home"),
             st.Page("markdown_preview.py", title="Markdown Previewer"),
-            # st.Page("json_formatter.py", title="JSON Formatter"),
+            # st.Page("json_validator.py", title="JSON Validator"),
             st.Page("word_counter.py", title="Word Counter"),
             st.Page("csv_viewer.py", title="CSV Viewer"),
+            st.Page("ping_tester.py", title="Ping Tester"),
+            st.Page("json_minifier.py", title="JSON Minifier"),
         ],
     }
     pg = st.navigation(pages)

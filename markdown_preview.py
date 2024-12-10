@@ -14,7 +14,7 @@ markdown_input_col, markdown_output_col = st.columns(2, gap='large')
 
 # Create a text area with sample markdown in it
 with markdown_input_col:
-    st.subheader(':blue[Enter Markdown here:]')
+    st.subheader(':gray[Enter Markdown here:]')
     markdown = st.text_area("Enter Markdown here:", """# Example Output
 ---
 What to do:
@@ -31,7 +31,7 @@ with col1:
     if st.button('Copy Text'):
         pyperclip.copy(markdown)
         text_copied = st.success('Text copied successfully!')
-        time.sleep(1) # Wait for 5 seconds
+        time.sleep(1) # Wait for 1 second
         text_copied.empty() # Eliminate the success message
 with col2:
     # Add a download button for markdown content

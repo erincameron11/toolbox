@@ -8,7 +8,8 @@ st.title(":clipboard: CSV Viewer")
 
 st.divider()
 
-uploaded_file = st.file_uploader("Choose a CSV file", accept_multiple_files=False)
+st.subheader(':gray[Choose a CSV file:]')
+uploaded_file = st.file_uploader("Choose a CSV file", accept_multiple_files=False, label_visibility='collapsed')
 
 # If a file was submitted, check that it is a CSV file
 if uploaded_file:
@@ -16,4 +17,4 @@ if uploaded_file:
         st.error('Please upload a CSV file format.', icon="🚨")
     else:
         df = pd.read_csv(uploaded_file)
-        st.dataframe(df)g
+        st.dataframe(df)
