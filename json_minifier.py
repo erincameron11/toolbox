@@ -36,7 +36,7 @@ def minify(json):
             minified_json += json[index]
     return minified_json
 
-st.title("JSON Minifier")
+st.title(":scissors: JSON Minifier")
 
 st.write('Converts JSON into a single line without any extra spaces or indentation for more efficient data transfer or storage.')
 
