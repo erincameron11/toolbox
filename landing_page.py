@@ -16,6 +16,7 @@ def main() :
             st.Page("csv_viewer.py", title="CSV Viewer"),
             st.Page("ping_tester.py", title="Ping Tester"),
             st.Page("json_minifier.py", title="JSON Minifier"),
+            st.Page("html_renderer.py", title="HTML Renderer"),
         ],
     }
     pg = st.navigation(pages)
