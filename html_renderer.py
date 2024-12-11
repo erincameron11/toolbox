@@ -58,7 +58,7 @@ with html_input_col:
 </html>
 """, height=600, label_visibility="collapsed")
 
-# Add columns to ensure buttons are on the same lines
+# Add columns to ensure buttons gare on the same lines
 col1, col2 = st.columns([1, 2.2])
 
 with col1:
